@@ -2,7 +2,7 @@
 
 A complete local demo showing how OPC-UA vehicle telemetry flows from an edge server through Prometheus into a live Grafana dashboard.
 
-![Dashboard](dashboard.png)
+![Dashboard](docs/dashboard.png)
 
 ## Architecture
 
@@ -32,7 +32,7 @@ A complete local demo showing how OPC-UA vehicle telemetry flows from an edge se
 
 ## Simulated Vehicle
 
-**1974 Oldtimer** — carburettor petrol engine, 12 V lead-acid electrics, cross-ply tyres.
+Carburettor petrol engine, 12 V lead-acid electrics, cross-ply tyres.
 
 | Prometheus Metric              | Description                        | Unit  |
 |--------------------------------|------------------------------------|-------|

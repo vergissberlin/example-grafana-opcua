@@ -1,0 +1,102 @@
+<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'Cascadia Code', monospace">
+
+  <rect width="720" height="340" fill="#F8FAFC"/>
+
+  <!-- ── ESP32 ── -->
+  <rect x="20" y="60" width="150" height="220" rx="10" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+  <rect x="20" y="60" width="150" height="32" rx="10" fill="#1E3A5F"/>
+  <rect x="20" y="80" width="150" height="12" fill="#1E3A5F"/>
+  <text x="95" y="82" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">ESP32</text>
+
+  <!-- sensor rows -->
+  <rect x="32" y="103" width="126" height="22" rx="4" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1"/>
+  <text x="95" y="119" text-anchor="middle" font-size="10" fill="#1D4ED8">DS18B20 (OneWire)</text>
+  <rect x="32" y="131" width="126" height="22" rx="4" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1"/>
+  <text x="95" y="147" text-anchor="middle" font-size="10" fill="#15803D">Hall RPM (INT)</text>
+  <rect x="32" y="159" width="126" height="22" rx="4" fill="#FFF7ED" stroke="#FDC086" stroke-width="1"/>
+  <text x="95" y="175" text-anchor="middle" font-size="10" fill="#C2410C">MPX4250 (ADC)</text>
+  <rect x="32" y="187" width="126" height="22" rx="4" fill="#FFF7ED" stroke="#FDC086" stroke-width="1"/>
+  <text x="95" y="203" text-anchor="middle" font-size="10" fill="#C2410C">Tankgeber (ADC)</text>
+  <rect x="32" y="215" width="126" height="22" rx="4" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1"/>
+  <text x="95" y="231" text-anchor="middle" font-size="10" fill="#6D28D9">Batt 12V ÷ 4.7</text>
+  <rect x="32" y="243" width="126" height="28" rx="4" fill="#F0FDF4" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="95" y="258" text-anchor="middle" font-size="10" font-weight="700" fill="#15803D">HTTPClient</text>
+  <text x="95" y="270" text-anchor="middle" font-size="9" fill="#15803D">http.POST(body)</text>
+
+  <!-- WiFi cloud hint -->
+  <text x="95" y="298" text-anchor="middle" font-size="9" fill="#94A3B8">802.11 WiFi</text>
+  <line x1="95" y1="300" x2="200" y2="300" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 2"/>
+
+  <!-- ── Arrow A: HTTP POST ── -->
+  <line x1="170" y1="180" x2="240" y2="180" stroke="#22C55E" stroke-width="2.5"/>
+  <polygon points="235,175 247,180 235,185" fill="#22C55E"/>
+
+  <!-- POST label -->
+  <rect x="172" y="155" width="66" height="32" rx="5" fill="#F0FDF4" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="205" y="169" text-anchor="middle" font-size="9.5" font-weight="700" fill="#15803D">HTTP POST</text>
+  <text x="205" y="182" text-anchor="middle" font-size="8.5" fill="#6B7280">:4841/sensor</text>
+
+  <!-- ── OPC-UA Server ── -->
+  <rect x="247" y="60" width="190" height="220" rx="10" fill="#1E3A5F" stroke="#2563EB" stroke-width="2"/>
+  <text x="342" y="85" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">opcua-server</text>
+  <text x="342" y="101" text-anchor="middle" font-size="9.5" fill="#93C5FD">port 4840 (OPC-UA)</text>
+  <text x="342" y="116" text-anchor="middle" font-size="9.5" fill="#22C55E">port 4841 (HTTP)</text>
+
+  <rect x="260" y="126" width="164" height="38" rx="5" fill="#0F2744" stroke="#22C55E" stroke-width="1"/>
+  <text x="342" y="142" text-anchor="middle" font-size="9.5" fill="#4ADE80">handle_sensor(request)</text>
+  <text x="342" y="157" text-anchor="middle" font-size="8.5" fill="#6B7280">aiohttp endpoint</text>
+
+  <rect x="260" y="172" width="164" height="26" rx="5" fill="#0F2744" stroke="#3B82F6" stroke-width="1"/>
+  <text x="342" y="190" text-anchor="middle" font-size="9.5" fill="#60A5FA">node.write_value(v)</text>
+
+  <rect x="260" y="206" width="164" height="50" rx="5" fill="#0F2744" stroke="#3B82F6" stroke-width="1"/>
+  <text x="342" y="222" text-anchor="middle" font-size="8.5" fill="#93C5FD">RPM · Temp · Oil</text>
+  <text x="342" y="236" text-anchor="middle" font-size="8.5" fill="#93C5FD">Fuel · Batt · Speed</text>
+  <text x="342" y="250" text-anchor="middle" font-size="8.5" fill="#93C5FD">Tire · Faults</text>
+
+  <!-- asyncua badge -->
+  <rect x="260" y="263" width="164" height="22" rx="5" fill="#0F2744" stroke="#22C55E" stroke-width="1"/>
+  <text x="342" y="278" text-anchor="middle" font-size="9.5" font-weight="600" fill="#4ADE80">asyncua :4840</text>
+
+  <!-- ── Arrow Server → Exporter ── -->
+  <line x1="437" y1="170" x2="476" y2="170" stroke="#6B7280" stroke-width="2"/>
+  <polygon points="471,165 483,170 471,175" fill="#6B7280"/>
+
+  <!-- ── Exporter ── -->
+  <rect x="483" y="140" width="130" height="60" rx="8" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+  <text x="548" y="162" text-anchor="middle" font-size="11" font-weight="600" fill="#111">Exporter</text>
+  <text x="548" y="178" text-anchor="middle" font-size="9" fill="#6B7280">Prometheus Gauges</text>
+  <text x="548" y="193" text-anchor="middle" font-size="9" fill="#6B7280">:9686/metrics</text>
+
+  <!-- ── Arrow Exporter → Prometheus ── -->
+  <line x1="548" y1="200" x2="548" y2="230" stroke="#6B7280" stroke-width="1.5"/>
+  <polygon points="543,226 548,238 553,226" fill="#6B7280"/>
+
+  <!-- ── Prometheus ── -->
+  <rect x="483" y="238" width="130" height="40" rx="8" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+  <text x="548" y="258" text-anchor="middle" font-size="11" font-weight="600" fill="#111">Prometheus</text>
+  <text x="548" y="272" text-anchor="middle" font-size="9" fill="#6B7280">:9090</text>
+
+  <!-- ── Arrow Prometheus → Grafana ── -->
+  <line x1="548" y1="278" x2="548" y2="296" stroke="#6B7280" stroke-width="1.5"/>
+  <polygon points="543,292 548,304 553,292" fill="#6B7280"/>
+
+  <!-- ── Grafana ── -->
+  <rect x="483" y="304" width="130" height="28" rx="8" fill="#1E3A5F" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="548" y="323" text-anchor="middle" font-size="11" font-weight="700" fill="#FCD34D">Grafana :3000</text>
+
+  <!-- ── JSON payload preview ── -->
+  <rect x="633" y="100" width="80" height="112" rx="6" fill="#F0FDF4" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="673" y="117" text-anchor="middle" font-size="8.5" font-weight="700" fill="#15803D">JSON Body</text>
+  <text x="643" y="132" font-size="7.5" fill="#374151">"RPM": 2400</text>
+  <text x="643" y="145" font-size="7.5" fill="#374151">"Temp": 82.3</text>
+  <text x="643" y="158" font-size="7.5" fill="#374151">"Oil": 3.1</text>
+  <text x="643" y="171" font-size="7.5" fill="#374151">"Fuel": 68.0</text>
+  <text x="643" y="184" font-size="7.5" fill="#374151">"Batt": 13.8</text>
+  <text x="643" y="197" font-size="7.5" fill="#374151">"Speed": 87.5</text>
+  <line x1="633" y1="203" x2="713" y2="203" stroke="#22C55E" stroke-width="1"/>
+  <text x="673" y="216" text-anchor="middle" font-size="7.5" fill="#15803D">→ 200 OK</text>
+
+  <!-- arrow from JSON box to POST arrow -->
+  <line x1="633" y1="156" x2="248" y2="180" stroke="#22C55E" stroke-width="1" stroke-dasharray="4 2"/>
+</svg>

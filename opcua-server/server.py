@@ -10,7 +10,7 @@ async def main():
     server = Server()
     await server.init()
     server.set_endpoint("opc.tcp://0.0.0.0:4840/vehicle/")
-    server.set_server_name("1974 Oldtimer OPC-UA Server")
+    server.set_server_name("Vehicle OPC-UA Server")
 
     uri = "http://demo.vehicle/opcua"
     idx = await server.register_namespace(uri)
@@ -31,7 +31,7 @@ async def main():
                  oil_pressure, battery_voltage, tire_pressure, fault_count]:
         await node.set_writable()
 
-    logging.info("1974 Oldtimer OPC-UA Server running on opc.tcp://0.0.0.0:4840")
+    logging.info("Vehicle OPC-UA Server running on opc.tcp://0.0.0.0:4840")
 
     async with server:
         t = 0
@@ -42,7 +42,7 @@ async def main():
             await asyncio.sleep(2)
             t += 1
 
-            # ── Speed: 1974 Oldtimer, max ~130 km/h ──────────────────────────
+            # ── Speed: max ~130 km/h ──────────────────────────────────────────
             v_speed = max(0.0, 65 + 55 * math.sin(t * 0.07) + 8 * math.sin(t * 0.28))
 
             # ── RPM: correlated with speed, carburettor noise ─────────────────

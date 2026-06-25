@@ -11,7 +11,7 @@ All four services run as containers. There is no build system, no test suite, no
 
 ## File Map
 
-```
+```plaintext
 compose.yml                  Docker Compose (4 services)
 prometheus.yml               Prometheus scrape config
 opcua-server/
@@ -29,6 +29,7 @@ opcua-exporter/
 Touch exactly two files:
 
 **1. `opcua-server/server.py`** — add a variable and write it in the loop:
+
 ```python
 # in main(), after existing variable declarations:
 new_sensor = await vehicle.add_variable(idx, "NewSensor_unit", 0.0)
@@ -39,11 +40,13 @@ await new_sensor.write_value(round(some_formula(t), 2))
 ```
 
 **2. `opcua-exporter/exporter.py`** — add to the METRICS dict:
+
 ```python
 "NewSensor_unit": Gauge("vehicle_new_sensor_unit", "Description of the metric"),
 ```
 
 Then rebuild both services:
+
 ```bash
 docker compose up -d --build opcua-server opcua-exporter
 ```
@@ -51,6 +54,7 @@ docker compose up -d --build opcua-server opcua-exporter
 ### Adding a Grafana panel
 
 Use the Grafana HTTP API (Grafana runs on localhost:3000, credentials admin/admin):
+
 ```python
 import json, urllib.request, base64
 
@@ -73,7 +77,7 @@ To update the dashboard, call `POST /api/dashboards/db` with `"overwrite": true`
 
 ## Simulated Vehicle
 
-**1974 Oldtimer** — carburettor petrol engine, 12 V lead-acid electrics, cross-ply tyres.
+Carburettor petrol engine, 12 V lead-acid electrics, cross-ply tyres.
 Max speed ~130 km/h. Engine warms up from cold start (~20 °C → 82 °C over ~2 min).
 Fuel drains slowly. Gear-change RPM spikes simulated every ~30 s.
 
@@ -114,7 +118,7 @@ All metrics are Gauges with prefix `vehicle_`. Scraped every 15 s from `opcua-ex
 
 ## Service Dependencies
 
-```
+```plaintext
 grafana       depends_on  prometheus
 prometheus    depends_on  opcua-exporter  (relaxed: changed to opcua-server)
 opcua-exporter depends_on opcua-server

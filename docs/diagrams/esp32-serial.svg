@@ -1,0 +1,96 @@
+<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'Cascadia Code', monospace">
+
+  <rect width="720" height="320" fill="#F8FAFC"/>
+
+  <!-- ── ESP32 ── -->
+  <rect x="20" y="60" width="140" height="190" rx="10" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+  <rect x="20" y="60" width="140" height="32" rx="10" fill="#374151"/>
+  <rect x="20" y="80" width="140" height="12" fill="#374151"/>
+  <text x="90" y="82" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">ESP32</text>
+
+  <rect x="32" y="104" width="116" height="20" rx="4" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1"/>
+  <text x="90" y="119" text-anchor="middle" font-size="9.5" fill="#1D4ED8">Sensoren lesen</text>
+
+  <rect x="32" y="130" width="116" height="50" rx="4" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5"/>
+  <text x="90" y="147" text-anchor="middle" font-size="9.5" font-weight="700" fill="#374151">ArduinoJson</text>
+  <text x="90" y="162" text-anchor="middle" font-size="8.5" fill="#6B7280">serializeJson(doc,</text>
+  <text x="90" y="175" text-anchor="middle" font-size="8.5" fill="#6B7280">Serial)</text>
+
+  <rect x="32" y="187" width="116" height="22" rx="4" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1"/>
+  <text x="90" y="203" text-anchor="middle" font-size="9.5" fill="#B91C1C">Serial.println()</text>
+
+  <rect x="32" y="215" width="116" height="28" rx="4" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1"/>
+  <text x="90" y="229" text-anchor="middle" font-size="8.5" fill="#15803D">115200 baud</text>
+  <text x="90" y="241" text-anchor="middle" font-size="8.5" fill="#15803D">JSON + \n</text>
+
+  <!-- ── USB Cable ── -->
+  <!-- cable body -->
+  <rect x="162" y="170" width="76" height="14" rx="7" fill="#374151" stroke="#111827" stroke-width="1"/>
+  <!-- USB-A plug right -->
+  <rect x="230" y="167" width="12" height="20" rx="2" fill="#6B7280" stroke="#374151" stroke-width="1"/>
+  <!-- USB-C / micro left -->
+  <rect x="158" y="169" width="8" height="16" rx="2" fill="#6B7280" stroke="#374151" stroke-width="1"/>
+  <text x="200" y="162" text-anchor="middle" font-size="9" fill="#475569">USB Kabel</text>
+  <text x="200" y="200" text-anchor="middle" font-size="8.5" fill="#94A3B8">/dev/ttyUSB0</text>
+  <text x="200" y="212" text-anchor="middle" font-size="8.5" fill="#94A3B8">COM3 (Win)</text>
+
+  <!-- ── serial-bridge.py (Host) ── -->
+  <rect x="247" y="50" width="190" height="220" rx="10" fill="#fff" stroke="#94A3B8" stroke-width="2"/>
+  <rect x="247" y="50" width="190" height="32" rx="10" fill="#374151"/>
+  <rect x="247" y="70" width="190" height="12" fill="#374151"/>
+  <text x="342" y="72" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">serial-bridge.py</text>
+  <text x="342" y="90" text-anchor="middle" font-size="9" fill="#9CA3AF">Host (außerhalb Docker)</text>
+
+  <rect x="260" y="100" width="164" height="26" rx="5" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1"/>
+  <text x="342" y="118" text-anchor="middle" font-size="9.5" fill="#374151">serial_asyncio</text>
+
+  <rect x="260" y="133" width="164" height="26" rx="5" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1"/>
+  <text x="342" y="151" text-anchor="middle" font-size="9.5" fill="#B91C1C">SerialReader.data_received()</text>
+
+  <rect x="260" y="166" width="164" height="26" rx="5" fill="#FFF7ED" stroke="#FDC086" stroke-width="1"/>
+  <text x="342" y="184" text-anchor="middle" font-size="9.5" fill="#C2410C">json.loads(line)</text>
+
+  <rect x="260" y="199" width="164" height="26" rx="5" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1"/>
+  <text x="342" y="217" text-anchor="middle" font-size="9.5" fill="#15803D">node.write_value(v)</text>
+
+  <rect x="260" y="232" width="164" height="30" rx="5" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.5"/>
+  <text x="342" y="249" text-anchor="middle" font-size="9" fill="#1D4ED8">asyncua Client</text>
+  <text x="342" y="262" text-anchor="middle" font-size="8.5" fill="#6B7280">opc.tcp://localhost:4840</text>
+
+  <!-- ── Arrow bridge → OPC-UA Server ── -->
+  <line x1="437" y1="170" x2="476" y2="170" stroke="#3B82F6" stroke-width="2"/>
+  <polygon points="471,165 483,170 471,175" fill="#3B82F6"/>
+  <text x="457" y="163" text-anchor="middle" font-size="8" fill="#1D4ED8">OPC-UA</text>
+  <text x="457" y="186" text-anchor="middle" font-size="8" fill="#1D4ED8">:4840</text>
+
+  <!-- ── OPC-UA Server (Docker) ── -->
+  <rect x="480" y="120" width="145" height="100" rx="8" fill="#1E3A5F" stroke="#2563EB" stroke-width="2"/>
+  <text x="553" y="143" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">OPC-UA Server</text>
+  <text x="553" y="159" text-anchor="middle" font-size="8.5" fill="#93C5FD">Docker Container</text>
+  <rect x="492" y="167" width="121" height="22" rx="4" fill="#0F2744" stroke="#22C55E" stroke-width="1"/>
+  <text x="553" y="182" text-anchor="middle" font-size="9" fill="#4ADE80">asyncua :4840</text>
+  <rect x="492" y="195" width="121" height="18" rx="4" fill="#0F2744" stroke="#3B82F6" stroke-width="1"/>
+  <text x="553" y="208" text-anchor="middle" font-size="9" fill="#93C5FD">exposed → localhost</text>
+
+  <!-- ── Arrow Server → stack ── -->
+  <line x1="553" y1="220" x2="553" y2="248" stroke="#6B7280" stroke-width="1.5"/>
+  <polygon points="548,244 553,256 558,244" fill="#6B7280"/>
+
+  <!-- ── Exporter + Prometheus + Grafana stacked ── -->
+  <rect x="493" y="256" width="120" height="24" rx="5" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+  <text x="553" y="273" text-anchor="middle" font-size="9.5" font-weight="600" fill="#111">Exporter :9686</text>
+  <line x1="553" y1="280" x2="553" y2="290" stroke="#6B7280" stroke-width="1.5"/>
+  <polygon points="548,287 553,295 558,287" fill="#6B7280"/>
+  <rect x="493" y="295" width="120" height="24" rx="5" fill="#1E3A5F" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="553" y="312" text-anchor="middle" font-size="9.5" font-weight="700" fill="#FCD34D">Grafana :3000</text>
+
+  <!-- ── constraint note ── -->
+  <rect x="20" y="272" width="220" height="38" rx="5" fill="#FEF9C3" stroke="#FDE047" stroke-width="1"/>
+  <text x="130" y="287" text-anchor="middle" font-size="9" font-weight="700" fill="#713F12">Einschränkungen</text>
+  <text x="130" y="300" text-anchor="middle" font-size="8.5" fill="#713F12">Kein Docker USB-Zugriff → Bridge läuft auf Host</text>
+  <text x="130" y="311" text-anchor="middle" font-size="8.5" fill="#713F12">1 ESP32 pro Port · Kabel erforderlich</text>
+
+  <!-- Docker boundary dashed -->
+  <rect x="470" y="40" width="235" height="290" rx="6" fill="none" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="6 4"/>
+  <text x="480" y="36" font-size="9" fill="#94A3B8">Docker Compose</text>
+</svg>
