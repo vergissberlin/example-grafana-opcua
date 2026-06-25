@@ -2,6 +2,8 @@
 
 A complete local demo showing how OPC-UA vehicle telemetry flows from an edge server through Prometheus into a live Grafana dashboard.
 
+![Dashboard](dashboard.png)
+
 ## Architecture
 
 ```plaintext
