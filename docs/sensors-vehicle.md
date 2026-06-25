@@ -65,7 +65,7 @@ Hallsensor am Verteilerrotor (1 Impuls pro Zündung, 4-Takt = 2 Impulse/Umdrehun
 Alternativ: Induktiver Sensor am Schwungrad.
 
 ```math
-RPM = (Impulse/Sek × 60) / 2   // 4-Takt-Faktor
+\mathrm{RPM}=\frac{\text{Impulse/s}\cdot 60}{2}\quad\text{(4-Takt-Faktor)}
 ```
 
 > Achtung: Zündspannungsspitzen können Störungen verursachen.
