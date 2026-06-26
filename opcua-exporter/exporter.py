@@ -18,6 +18,8 @@ METRICS = {
     "BatteryVoltage_V":   Gauge("vehicle_battery_voltage_v",   "12V lead-acid battery voltage"),
     "TirePressure_bar":   Gauge("vehicle_tire_pressure_bar",   "Tire pressure in bar"),
     "ActiveFaultCount":   Gauge("vehicle_active_fault_count",  "Number of active faults"),
+    "GPS_Latitude":       Gauge("vehicle_gps_latitude",        "GPS latitude in decimal degrees"),
+    "GPS_Longitude":      Gauge("vehicle_gps_longitude",       "GPS longitude in decimal degrees"),
 }
 
 

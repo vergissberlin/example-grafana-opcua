@@ -26,9 +26,12 @@ async def main():
     battery_voltage = await vehicle.add_variable(idx, "BatteryVoltage_V",    12.2)
     tire_pressure   = await vehicle.add_variable(idx, "TirePressure_bar",    1.8)
     fault_count     = await vehicle.add_variable(idx, "ActiveFaultCount",    0)
+    gps_latitude    = await vehicle.add_variable(idx, "GPS_Latitude",        48.137)
+    gps_longitude   = await vehicle.add_variable(idx, "GPS_Longitude",       11.575)
 
     for node in [speed, engine_temp, rpm, fuel_level,
-                 oil_pressure, battery_voltage, tire_pressure, fault_count]:
+                 oil_pressure, battery_voltage, tire_pressure, fault_count,
+                 gps_latitude, gps_longitude]:
         await node.set_writable()
 
     logging.info("Vehicle OPC-UA Server running on opc.tcp://0.0.0.0:4840")
@@ -78,6 +81,10 @@ async def main():
             # ── Faults: carburettor hiccup every ~5 min ───────────────────────
             v_fault_count = 1 if t % 150 == 0 else 0
 
+            # ── GPS: oval route around Munich city centre (~5 km radius) ─────────
+            v_lat = 48.137 + 0.018 * math.sin(t * 0.04)
+            v_lon = 11.575 + 0.025 * math.cos(t * 0.04)
+
             await speed.write_value(round(v_speed, 2))
             await engine_temp.write_value(round(v_engine_temp, 2))
             await rpm.write_value(round(v_rpm, 0))
@@ -86,6 +93,8 @@ async def main():
             await battery_voltage.write_value(round(v_battery_voltage, 2))
             await tire_pressure.write_value(round(v_tire_pressure, 3))
             await fault_count.write_value(v_fault_count)
+            await gps_latitude.write_value(round(v_lat, 6))
+            await gps_longitude.write_value(round(v_lon, 6))
 
 
 asyncio.run(main())

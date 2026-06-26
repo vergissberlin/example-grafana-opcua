@@ -1,0 +1,126 @@
+<svg viewBox="0 0 860 400" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'Cascadia Code', monospace">
+
+  <rect width="860" height="400" fill="#F8FAFC"/>
+
+  <!-- ══ Sensor Node A ══ -->
+  <rect x="10" y="30" width="148" height="100" rx="8" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+  <rect x="10" y="30" width="148" height="26" rx="8" fill="#4338CA"/>
+  <rect x="10" y="48" width="148" height="8" fill="#4338CA"/>
+  <text x="84" y="48" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">Node A</text>
+  <rect x="20" y="65" width="128" height="18" rx="3" fill="#EEF2FF" stroke="#6366F1" stroke-width="1"/>
+  <text x="84" y="78" text-anchor="middle" font-size="9" fill="#4338CA">GPIO34 — Hall RPM</text>
+  <rect x="20" y="87" width="128" height="18" rx="3" fill="#EEF2FF" stroke="#6366F1" stroke-width="1"/>
+  <text x="84" y="100" text-anchor="middle" font-size="9" fill="#4338CA">GPIO32 — DS18B20 Temp</text>
+  <rect x="20" y="109" width="128" height="15" rx="3" fill="#EEF2FF" stroke="#6366F1" stroke-width="1"/>
+  <text x="84" y="121" text-anchor="middle" font-size="8.5" fill="#4338CA">esp_now_send()</text>
+
+  <!-- ══ Sensor Node B ══ -->
+  <rect x="10" y="155" width="148" height="100" rx="8" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+  <rect x="10" y="155" width="148" height="26" rx="8" fill="#4338CA"/>
+  <rect x="10" y="173" width="148" height="8" fill="#4338CA"/>
+  <text x="84" y="173" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">Node B</text>
+  <rect x="20" y="190" width="128" height="18" rx="3" fill="#EEF2FF" stroke="#6366F1" stroke-width="1"/>
+  <text x="84" y="203" text-anchor="middle" font-size="9" fill="#4338CA">GPIO36 — Tankgeber ADC</text>
+  <rect x="20" y="212" width="128" height="18" rx="3" fill="#EEF2FF" stroke="#6366F1" stroke-width="1"/>
+  <text x="84" y="225" text-anchor="middle" font-size="9" fill="#4338CA">GPIO33 — MPX4250 Oil</text>
+  <rect x="20" y="234" width="128" height="15" rx="3" fill="#EEF2FF" stroke="#6366F1" stroke-width="1"/>
+  <text x="84" y="246" text-anchor="middle" font-size="8.5" fill="#4338CA">esp_now_send()</text>
+
+  <!-- ══ Sensor Node C ══ -->
+  <rect x="10" y="280" width="148" height="100" rx="8" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+  <rect x="10" y="280" width="148" height="26" rx="8" fill="#4338CA"/>
+  <rect x="10" y="298" width="148" height="8" fill="#4338CA"/>
+  <text x="84" y="298" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">Node C</text>
+  <rect x="20" y="315" width="128" height="18" rx="3" fill="#EEF2FF" stroke="#6366F1" stroke-width="1"/>
+  <text x="84" y="328" text-anchor="middle" font-size="9" fill="#4338CA">GPIO39 — Batt 12V ÷ 4.7</text>
+  <rect x="20" y="337" width="128" height="18" rx="3" fill="#EEF2FF" stroke="#6366F1" stroke-width="1"/>
+  <text x="84" y="350" text-anchor="middle" font-size="9" fill="#4338CA">BLE — TPMS 4× Reifen</text>
+  <rect x="20" y="359" width="128" height="15" rx="3" fill="#EEF2FF" stroke="#6366F1" stroke-width="1"/>
+  <text x="84" y="371" text-anchor="middle" font-size="8.5" fill="#4338CA">esp_now_send()</text>
+
+  <!-- ══ ESP-NOW arrows A/B/C → Gateway ══ -->
+  <!-- A -->
+  <line x1="158" y1="80" x2="280" y2="185" stroke="#6366F1" stroke-width="2" stroke-dasharray="6 3"/>
+  <!-- B -->
+  <line x1="158" y1="205" x2="280" y2="205" stroke="#6366F1" stroke-width="2.5"/>
+  <!-- C -->
+  <line x1="158" y1="330" x2="280" y2="225" stroke="#6366F1" stroke-width="2" stroke-dasharray="6 3"/>
+
+  <!-- ESP-NOW label -->
+  <rect x="162" y="155" width="80" height="32" rx="5" fill="#EEF2FF" stroke="#6366F1" stroke-width="1.5"/>
+  <text x="202" y="169" text-anchor="middle" font-size="9" font-weight="700" fill="#4338CA">ESP-NOW</text>
+  <text x="202" y="181" text-anchor="middle" font-size="8" fill="#6B7280">~1 ms · 250 B</text>
+
+  <!-- arrowheads -->
+  <polygon points="275,180 287,185 275,190" fill="#6366F1"/>
+  <polygon points="275,200 287,205 275,210" fill="#6366F1"/>
+  <polygon points="275,220 287,225 275,230" fill="#6366F1"/>
+
+  <!-- ══ Gateway ESP32 ══ -->
+  <rect x="287" y="100" width="200" height="210" rx="10" fill="#1E3A5F" stroke="#6366F1" stroke-width="2.5"/>
+  <text x="387" y="124" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">Gateway ESP32</text>
+  <text x="387" y="140" text-anchor="middle" font-size="9" fill="#A5B4FC">ESP-NOW + WiFi gleichzeitig</text>
+
+  <rect x="299" y="150" width="176" height="30" rx="5" fill="#0F2744" stroke="#6366F1" stroke-width="1"/>
+  <text x="387" y="164" text-anchor="middle" font-size="9.5" fill="#A5B4FC">esp_now_register_recv_cb()</text>
+  <text x="387" y="177" text-anchor="middle" font-size="8.5" fill="#6B7280">empfängt sensor_msg_t</text>
+
+  <rect x="299" y="188" width="176" height="30" rx="5" fill="#0F2744" stroke="#818CF8" stroke-width="1"/>
+  <text x="387" y="203" text-anchor="middle" font-size="9.5" fill="#C7D2FE">merge → std::map</text>
+  <text x="387" y="216" text-anchor="middle" font-size="8.5" fill="#6B7280">node_a + node_b + node_c</text>
+
+  <rect x="299" y="226" width="176" height="30" rx="5" fill="#0F2744" stroke="#22C55E" stroke-width="1"/>
+  <text x="387" y="241" text-anchor="middle" font-size="9.5" fill="#4ADE80">ArduinoJson → HTTP POST</text>
+  <text x="387" y="254" text-anchor="middle" font-size="8.5" fill="#6B7280">alle 2 s → :4841/sensor</text>
+
+  <rect x="299" y="264" width="176" height="22" rx="5" fill="#0F2744" stroke="#34D399" stroke-width="1"/>
+  <text x="387" y="279" text-anchor="middle" font-size="9" fill="#6EE7B7">WiFi  ·  HTTPClient</text>
+
+  <!-- ══ Arrow Gateway → OPC-UA Server ══ -->
+  <line x1="487" y1="205" x2="526" y2="205" stroke="#22C55E" stroke-width="2.5"/>
+  <polygon points="521,200 533,205 521,210" fill="#22C55E"/>
+  <text x="507" y="197" text-anchor="middle" font-size="8.5" fill="#15803D">HTTP</text>
+  <text x="507" y="218" text-anchor="middle" font-size="8.5" fill="#15803D">:4841</text>
+
+  <!-- ══ OPC-UA Server ══ -->
+  <rect x="533" y="130" width="160" height="150" rx="8" fill="#1E3A5F" stroke="#2563EB" stroke-width="2"/>
+  <text x="613" y="153" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">OPC-UA Server</text>
+  <text x="613" y="168" text-anchor="middle" font-size="8.5" fill="#93C5FD">asyncua :4840 / :4841</text>
+  <rect x="545" y="178" width="136" height="22" rx="4" fill="#0F2744" stroke="#22C55E" stroke-width="1"/>
+  <text x="613" y="193" text-anchor="middle" font-size="9" fill="#4ADE80">handle_sensor()</text>
+  <rect x="545" y="208" width="136" height="40" rx="4" fill="#0F2744" stroke="#3B82F6" stroke-width="1"/>
+  <text x="613" y="224" text-anchor="middle" font-size="8.5" fill="#93C5FD">RPM · Temp · Oil</text>
+  <text x="613" y="237" text-anchor="middle" font-size="8.5" fill="#93C5FD">Fuel · Batt · Tire</text>
+  <text x="613" y="250" text-anchor="middle" font-size="8.5" fill="#93C5FD">Speed · Faults</text>
+  <rect x="545" y="256" width="136" height="18" rx="4" fill="#0F2744" stroke="#6366F1" stroke-width="1"/>
+  <text x="613" y="269" text-anchor="middle" font-size="8.5" fill="#A5B4FC">node.write_value()</text>
+
+  <!-- ══ OPC-UA → Exporter → Prometheus → Grafana ══ -->
+  <line x1="693" y1="205" x2="722" y2="205" stroke="#6B7280" stroke-width="1.5"/>
+  <polygon points="717,200 729,205 717,210" fill="#6B7280"/>
+
+  <rect x="729" y="180" width="120" height="50" rx="6" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+  <text x="789" y="199" text-anchor="middle" font-size="10" font-weight="600" fill="#111">Exporter</text>
+  <text x="789" y="213" text-anchor="middle" font-size="8.5" fill="#6B7280">:9686/metrics</text>
+  <text x="789" y="226" text-anchor="middle" font-size="8.5" fill="#6B7280">Gauges</text>
+
+  <line x1="789" y1="230" x2="789" y2="250" stroke="#6B7280" stroke-width="1.5"/>
+  <polygon points="784,246 789,258 794,246" fill="#6B7280"/>
+
+  <rect x="729" y="258" width="120" height="34" rx="6" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+  <text x="789" y="276" text-anchor="middle" font-size="10" font-weight="600" fill="#111">Prometheus</text>
+  <text x="789" y="288" text-anchor="middle" font-size="8.5" fill="#6B7280">:9090</text>
+
+  <line x1="789" y1="292" x2="789" y2="310" stroke="#6B7280" stroke-width="1.5"/>
+  <polygon points="784,306 789,318 794,306" fill="#6B7280"/>
+
+  <rect x="729" y="318" width="120" height="28" rx="6" fill="#1E3A5F" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="789" y="337" text-anchor="middle" font-size="10" font-weight="700" fill="#FCD34D">Grafana :3000</text>
+
+  <!-- ══ Info box ══ -->
+  <rect x="10" y="392" width="840" height="0" rx="0" fill="none"/>
+  <rect x="287" y="325" width="200" height="50" rx="5" fill="#EEF2FF" stroke="#6366F1" stroke-width="1"/>
+  <text x="387" y="341" text-anchor="middle" font-size="9" font-weight="700" fill="#4338CA">Kein WiFi-Router zwischen Nodes nötig</text>
+  <text x="387" y="355" text-anchor="middle" font-size="8.5" fill="#4338CA">Reichweite ~30–50 m im Fahrzeug</text>
+  <text x="387" y="368" text-anchor="middle" font-size="8.5" fill="#4338CA">Bis zu 20 Sensor-Nodes · ESP-NOW ≤ 250 Byte</text>
+</svg>

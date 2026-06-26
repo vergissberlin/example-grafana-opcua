@@ -100,6 +100,8 @@ Current nodes in `Vehicle`:
 | `BatteryVoltage_V`     | Float | 12.2       | ~13.8 V while running          |
 | `TirePressure_bar`     | Float | 1.8        | vintage cross-ply              |
 | `ActiveFaultCount`     | Int32 | 0          | carb hiccup every ~5 min       |
+| `GPS_Latitude`         | Float | 48.137     | oval route around Munich       |
+| `GPS_Longitude`        | Float | 11.575     | oval route around Munich       |
 
 ## Prometheus Metrics
 
@@ -115,6 +117,8 @@ All metrics are Gauges with prefix `vehicle_`. Scraped every 15 s from `opcua-ex
 | `vehicle_battery_voltage_v`    | `BatteryVoltage_V`     |
 | `vehicle_tire_pressure_bar`    | `TirePressure_bar`     |
 | `vehicle_active_fault_count`   | `ActiveFaultCount`     |
+| `vehicle_gps_latitude`         | `GPS_Latitude`         |
+| `vehicle_gps_longitude`        | `GPS_Longitude`        |
 
 ## Service Dependencies
 

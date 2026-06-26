@@ -46,7 +46,7 @@ Pro Umdrehung 1 Impuls → Geschwindigkeit aus Radumfang berechnen.
 
 ```plaintext
 v [km/h] = (Impulse/Sek × Radumfang [m] × 3.6)
-Radumfang 1974 typ.: 165R15 → ca. 1.905 m
+Radumfang typ. 165R15 → ca. 1.905 m
 ```
 
 **Verkabelung:**
@@ -176,7 +176,7 @@ ESP32 liest via BLE-Scan:
 
 ### ActiveFaultCount — Fehlerzähler
 
-1974er-Fahrzeuge haben kein OBD-II. Stattdessen: Warnleuchten aus dem Armaturenbrett auslesen.
+Ältere Fahrzeuge ohne OBD-II: Warnleuchten aus dem Armaturenbrett auslesen.
 
 ```plaintext
 Warnleuchte (12 V) ──── Optokoppler (PC817) ──── GPIO (3.3 V)
